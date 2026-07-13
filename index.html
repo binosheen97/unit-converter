@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Unit Converter - Free Online Length, Weight, Temperature & More</title>
+    <meta name="description" content="Free unit converter. Convert length (cm to inches), weight (kg to lbs), temperature (Celsius to Fahrenheit), volume, time and more. Fast and accurate.">
+    <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, cm to inches, kg to lbs, celsius to fahrenheit, miles to km, online converter">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://binosheen97.github.io/unit-converter/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Unit Converter - Convert Length, Weight, Temperature & More">
+    <meta property="og:description" content="Free online unit converter. Convert between hundreds of units instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://binosheen97.github.io/unit-converter/">
+
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="cBtI9qnEEtgjEyN--AIkGKP__lNGdHbMJEZI72XqDSo" />
+    <meta name="google-adsense-account" content="ca-pub-9209701505864374">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QV903LBHRQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QV903LBHRQ');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209701505864374" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📏 Unit Converter</h1>
+            <p class="subtitle">Convert Any Unit Instantly & Accurately</p>
+        </header>
+
+        <div class="calculator-container">
+
+            <!-- Left: Input -->
+            <div class="left-column">
+
+                <!-- Category Tabs -->
+                <div class="category-tabs">
+                    <button class="cat-btn active" onclick="switchCategory('length')" data-cat="length">📏 Length</button>
+                    <button class="cat-btn" onclick="switchCategory('weight')" data-cat="weight">⚖️ Weight</button>
+                    <button class="cat-btn" onclick="switchCategory('temperature')" data-cat="temperature">🌡️ Temp</button>
+                    <button class="cat-btn" onclick="switchCategory('volume')" data-cat="volume">💧 Volume</button>
+                    <button class="cat-btn" onclick="switchCategory('time')" data-cat="time">⏱️ Time</button>
+                </div>
+
+                <div class="calc-card">
+                    <h2 id="cat-title">📏 Length Converter</h2>
+                    <p class="card-desc" id="cat-desc">Convert between metric and imperial length units</p>
+
+                    <div class="input-group">
+                        <label>Enter Value</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="input-value" placeholder="1" step="any" oninput="convertUnits()">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>From Unit</label>
+                        <select id="from-unit" class="select-input" onchange="convertUnits()"></select>
+                    </div>
+
+                    <div class="swap-row">
+                        <div class="input-group" style="flex:1">
+                            <label>To Unit</label>
+                            <select id="to-unit" class="select-input" onchange="convertUnits()"></select>
+                        </div>
+                        <button class="swap-btn" onclick="swapUnits()" title="Swap units">⇅</button>
+                    </div>
+
+                    <div class="main-result" id="main-result">
+                        <span class="result-placeholder">Enter a value to convert</span>
+                    </div>
+                </div>
+
+                <!-- Ad Unit -->
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9209701505864374"
+                         data-ad-slot="auto"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+            </div>
+
+            <!-- Right: All conversions -->
+            <div class="right-column">
+                <div class="all-conversions-card">
+                    <h3>🔄 All Conversions</h3>
+                    <p class="card-desc">Results for all units in this category</p>
+                    <div id="all-results"></div>
+                </div>
+
+                <div class="popular-card">
+                    <h3>⚡ Popular Conversions</h3>
+                    <div class="popular-list" id="popular-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="info-card">
+                <h2>How to Use</h2>
+                <p>Select a category (Length, Weight, Temperature, Volume, or Time), enter your value, choose your units, and get instant results.</p>
+                <ul>
+                    <li>All results update as you type</li>
+                    <li>Use the ⇅ button to swap units</li>
+                    <li>Click popular conversions for quick access</li>
+                    <li>All units shown on the right panel</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h2>Common Conversions</h2>
+                <ul>
+                    <li><strong>1 inch</strong> = 2.54 cm</li>
+                    <li><strong>1 kg</strong> = 2.20462 lbs</li>
+                    <li><strong>0°C</strong> = 32°F</li>
+                    <li><strong>1 mile</strong> = 1.60934 km</li>
+                    <li><strong>1 gallon</strong> = 3.78541 liters</li>
+                    <li><strong>1 hour</strong> = 3,600 seconds</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h2>Unit Systems</h2>
+                <ul>
+                    <li><strong>Metric:</strong> km, kg, °C, liters — used worldwide</li>
+                    <li><strong>Imperial:</strong> miles, lbs, °F, gallons — used in US/UK</li>
+                    <li><strong>SI Units:</strong> International System of Units — scientific standard</li>
+                    <li>Our converter handles all three systems seamlessly</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p><a href="/">Home</a> | <a href="/age-calculator/">Age Calculator</a> | <a href="/bmi-calculator/">BMI Calculator</a> | <a href="/percentage-calculator/">Percentage Calculator</a> | <a href="/date-calculator/">Date Calculator</a> | <a href="/unit-converter/">Unit Converter</a></p>
+            <p><a href="/about.html">About Us</a> | <a href="/contact.html">Contact</a> | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/terms-of-service.html">Terms of Service</a></p>
+            <p>&copy; 2026 Unit Converter. Free online unit conversion tool.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
